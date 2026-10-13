@@ -1,0 +1,139 @@
+:root{
+  --cream:#F6F0E6; --sand:#EDE3D3; --brown:#2B211B; --amber:#B7712F; --amber-d:#8F5319;
+  --olive:#6F7A5A; --night:#1E1713;
+  --serif:"Noto Serif KR",Georgia,serif; --sans:"Noto Sans KR",system-ui,-apple-system,"Malgun Gothic",sans-serif;
+  --hdr:64px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--hdr)}
+body{margin:0;background:var(--cream);color:var(--brown);font:400 16px/1.8 var(--sans);-webkit-font-smoothing:antialiased;word-break:keep-all}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.35;margin:0}
+p{margin:0 0 1em}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+.narrow{width:min(720px,100% - 40px)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--brown);color:#fff;padding:8px 14px;z-index:100;border-radius:6px}
+.skip:focus{left:8px}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:4px}
+
+.eyebrow{font:400 12px/1 var(--serif);letter-spacing:.28em;text-transform:uppercase;color:var(--amber-d);margin:0 0 18px}
+
+/* 버튼 */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;border-radius:8px;background:var(--brown);color:var(--cream);text-decoration:none;font-weight:500;letter-spacing:.02em;transition:background .25s,transform .25s}
+.btn:hover{background:#000;transform:translateY(-1px)}
+.btn-buy{background:var(--amber);color:#fff}
+.btn-buy:hover{background:var(--amber-d)}
+.final .btn-buy{background:var(--amber);color:#1E1713;font-weight:700}
+.final .btn-buy:hover{background:#D08A43}
+
+/* 헤더 */
+.site-header{position:fixed;inset:0 0 auto 0;height:var(--hdr);z-index:50;transition:background .3s,backdrop-filter .3s,box-shadow .3s}
+.site-header.solid{background:rgba(246,240,230,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(43,33,27,.08)}
+.bar{height:100%;display:flex;align-items:center;justify-content:space-between}
+.logo{font:600 20px/1 var(--serif);text-decoration:none;letter-spacing:.06em}
+.logo span{color:var(--amber-d)}
+nav{display:flex;gap:6px}
+nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;text-decoration:none;font-size:15px}
+nav a:hover{color:var(--amber-d)}
+.nav-buy{background:var(--brown);color:var(--cream);border-radius:8px;padding:0 18px;margin-left:4px}
+nav .nav-buy:hover{color:#fff;background:#000}
+
+/* 히어로 */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;color:var(--brown)}
+.hero-img{position:absolute;inset:0 0 auto 0;width:100%;height:64%;object-fit:cover;object-position:80% 55%}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(246,240,230,.6) 0,rgba(246,240,230,0) 16%,rgba(246,240,230,0) 40%,rgba(246,240,230,1) 66%)}
+.hero-copy{position:relative;padding:0 0 64px}
+.hero h1{font-size:clamp(34px,9vw,60px);letter-spacing:-.01em;margin-bottom:20px}
+.lead{font-size:clamp(16px,4.2vw,19px);max-width:30em;margin-bottom:28px}
+@media(min-width:860px){
+  .hero{align-items:center}
+  .hero-shade{background:linear-gradient(90deg,rgba(246,240,230,.94) 0,rgba(246,240,230,.82) 32%,rgba(246,240,230,0) 62%)}
+  .hero-img{inset:0;height:100%;object-position:60% center}
+  .hero-copy{padding:var(--hdr) 0 0}
+}
+
+/* 공통 섹션 */
+.section{padding:clamp(96px,14vw,150px) 0}
+.sec-head{margin-bottom:clamp(40px,6vw,64px)}
+h2{font-size:clamp(28px,5.4vw,42px)}
+
+/* ABOUT */
+.split{display:grid;gap:40px;align-items:center}
+.about-fig{margin:0}
+.about-fig img{border-radius:8px;width:100%;aspect-ratio:1;object-fit:cover}
+.about h2{margin-bottom:24px}
+mark{background:none;color:var(--amber-d);font:600 1.2em var(--serif);padding:0 .1em;box-shadow:inset 0 -.4em 0 rgba(183,113,47,.18)}
+@media(min-width:860px){.split{grid-template-columns:1fr 1fr;gap:96px}.about .reveal:last-child{max-width:28em}}
+
+/* 스트립 */
+.strip{background:var(--sand)}
+.strip ul{list-style:none;margin-block:0;padding:0;display:grid}
+.strip li{padding:30px 0;text-align:center;border-top:1px solid rgba(43,33,27,.12)}
+.strip li:first-child{border-top:0}
+.strip strong{display:block;font:600 18px var(--serif)}
+.strip span{font-size:14px;opacity:.8}
+@media(min-width:760px){.strip ul{grid-template-columns:repeat(3,1fr)}.strip li{border-top:0;border-left:1px solid rgba(43,33,27,.12);padding:44px 12px}.strip li:first-child{border-left:0}}
+
+.making{position:relative}
+.making img{width:100%;max-height:560px;object-fit:cover}
+.making p{margin:0;padding:22px 0;font:400 15px var(--serif);text-align:center;opacity:.85}
+
+/* 상품 */
+.cards{display:grid;gap:28px}
+.card{position:relative;background:var(--sand);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+.card img{width:100%;aspect-ratio:1;object-fit:cover}
+.card-body{padding:24px 24px 28px;display:flex;flex-direction:column;flex:1}
+.card h3{font-size:22px;margin-bottom:8px}
+.spec{font-size:14px;color:var(--amber-d);font-weight:500;margin-bottom:6px}
+.note{font-size:15px;opacity:.85;margin-bottom:14px}
+.price{font:600 20px var(--serif);margin-top:auto;margin-bottom:18px}
+.badge{position:absolute;top:14px;left:14px;z-index:2;background:var(--olive);color:#fff;font-size:13px;font-weight:500;padding:6px 12px;border-radius:999px}
+@media(min-width:860px){.cards{grid-template-columns:repeat(3,1fr);gap:32px}}
+
+/* 후기 */
+.reviews{background:var(--sand)}
+.review-row{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
+.review{flex:0 0 82%;scroll-snap-align:start;margin:0;background:var(--cream);padding:28px;border-radius:8px}
+.review blockquote{margin:0 0 16px;font-family:var(--serif)}
+.review figcaption{font-size:14px;color:var(--amber-d)}
+@media(min-width:860px){.review-row{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible}.review{flex:none}}
+
+/* FAQ */
+details{border-top:1px solid rgba(43,33,27,.18)}
+details:last-of-type{border-bottom:1px solid rgba(43,33,27,.18)}
+summary{list-style:none;cursor:pointer;min-height:56px;padding:16px 36px 16px 0;position:relative;font:600 17px/1.5 var(--serif)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);font:300 26px var(--sans);color:var(--amber-d);transition:transform .3s}
+details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+details p{padding:0 0 22px;margin:0;max-width:34em}
+
+/* 마감 CTA */
+.final{position:relative;background:var(--night);color:#F6F0E6;padding:clamp(110px,16vw,190px) 0;overflow:hidden;text-align:center;scroll-margin-top:0}
+.final img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% center}
+.final-shade{position:absolute;inset:0;background:rgba(30,23,19,.72)}
+.final-copy{position:relative}
+.final h2{font-size:clamp(30px,6.4vw,50px);margin-bottom:34px}
+
+/* 푸터 */
+.site-footer{background:var(--night);color:rgba(246,240,230,.82);padding:48px 0 120px;font-size:13px;line-height:1.9;border-top:1px solid rgba(246,240,230,.12)}
+.site-footer .logo{color:#F6F0E6;margin-bottom:16px;display:block}
+.site-footer p{margin:0 0 4px}
+.site-footer .links a{text-underline-offset:3px}
+.site-footer .copy{margin-top:16px;opacity:.65}
+@media(min-width:760px){.site-footer{padding-bottom:56px}}
+
+/* 모바일 고정 바 */
+.sticky-buy{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(246,240,230,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 -1px 0 rgba(43,33,27,.1);transform:translateY(110%);transition:transform .35s}
+.sticky-buy.show{transform:none}
+.sticky-buy .btn{width:100%}
+@media(min-width:760px){.sticky-buy{display:none}}
+
+/* 모션: 촛불처럼 느린 페이드인 */
+.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .9s ease,transform .9s ease}
+.js .reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  .js .reveal{opacity:1;transform:none}
+}
